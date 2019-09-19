@@ -30,10 +30,10 @@ jobs:
       - run: npm run build # doesn't seem to commit code to gh-pages!!
       - run: git add --all
       - run: git add -f dist/
-      - run: git remote add pages https://x-access-token:$GITHUB_REPO_ACCESS_TOKEN@github.com/:owner/:repo.git
+#      - run: git remote add pages https://x-access-token:$GITHUB_REPO_ACCESS_TOKEN@github.com/:owner/:repo.git
       - run: git remote -v
       - run: git config user.email "patrick.merlot+github.actions.bot@gmail.com"
       - run: git config user.name "Patechoc GithHub Actions' Bot"
       - run: git commit -am "Publish to gh-pages branch"
-      - run: git push pages gh-pages -f
-#      - run: git push origin gh-pages -f
+#      - run: git push pages gh-pages -f
+      - run: git push origin gh-pages -f
