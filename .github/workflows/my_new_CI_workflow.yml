@@ -3,12 +3,16 @@ workflow "Test ghpages" {
   resolves = ["Deploy to GitHub Pages"]
 }
 
+action "Write sha" {
+  uses = "actions/bin/sh@db72a46c8ce298e5d2c3a51861e20c455581524f"
+  args = ["echo $GITHUB_SHA >> public/index.html"]
+}
+
 action "Deploy to GitHub Pages" {
-  uses = "Patechoc/deploy_with_github_actions@master"
+  uses = "./"
+  needs = "Write sha"
   env = {
-    BUILD_SCRIPT = "npm install && npm install vue && npm run build"
-    BRANCH = "gh-pages"
-    FOLDER = "dist"
+    BUILD_DIR = "public/"
   }
-  secrets = ["GITHUB_REPO_ACCESS_TOKEN"]
+  secrets = ["GH_PAT"]
 }
