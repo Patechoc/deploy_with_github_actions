@@ -6,16 +6,24 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    
+    strategy:
+      matrix:
+        node: [ '10', '8' ]
+        
+    name: Node ${{ matrix.node }} sample
     steps:
-    - name:  Checkout the source code
-      uses: actions/checkout@master
-
-    - name: Build and Deploy
-      uses: actions/checkout@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.GITHUB_REPO_ACCESS_TOKEN }}
-        BASE_BRANCH: master # The branch the action should deploy from.
-        BRANCH: gh-pages
-        FOLDER: dist
-        BUILD_SCRIPT: npm install vue && npm run build
+      - uses: actions/checkout@master
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+        env:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_REPO_ACCESS_TOKEN }}
+          BASE_BRANCH: master # The branch the action should deploy from.
+          BRANCH: gh-pages
+          FOLDER: dist
+      - run: npm install
+      - run: npm install vue
+      - run: npm run build
+      - run: npm run serve
