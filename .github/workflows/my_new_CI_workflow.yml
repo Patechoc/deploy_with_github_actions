@@ -1,7 +1,17 @@
 name: CI workflow: Build and Deploy
-on: [push]
-
+on:
+  push:
+    branches:	
+      - master
 jobs:
+  test:
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: [8, 10, 12]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
