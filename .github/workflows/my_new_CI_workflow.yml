@@ -25,5 +25,4 @@ jobs:
           FOLDER: dist
       - run: npm install
       - run: npm install vue
-      - run: npm run build
-      - run: npm run serve
+      - run: npm run build # doesn't seem to commit code to gh-pages!!
