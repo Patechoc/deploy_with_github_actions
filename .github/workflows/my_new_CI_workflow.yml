@@ -17,6 +17,6 @@ jobs:
         BRANCH: gh-pages # The branch the action should deploy to.
         FOLDER: dist # The folder the action should deploy.
         BUILD_SCRIPT: npm install vue && npm run build # The build script the action should run prior to deploying.
-        COMMIT_NAME: GitHub Actions Bot
-        COMMIT_EMAIL: patrick.merlot+github_actions_bot@gmail.com
+        COMMIT_NAME: "GitHub Actions Bot"
+        COMMIT_EMAIL: "patrick.merlot+github_actions_bot@gmail.com"
         
