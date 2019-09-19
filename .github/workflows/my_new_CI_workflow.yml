@@ -7,11 +7,12 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     
-    strategy:
-      matrix:
-        node: [ '10', '8' ]
+#    strategy:
+#      matrix:
+#        node: [ '10', '8' ]
         
-    name: Node ${{ matrix.node }} sample
+#    name: Node ${{ matrix.node }} sample
+    name: Build and deploy
     steps:
       - uses: actions/checkout@master
       - name: Setup node
