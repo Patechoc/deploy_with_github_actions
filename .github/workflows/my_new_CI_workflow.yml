@@ -35,5 +35,8 @@ jobs:
       - run: git config user.email "patrick.merlot+github.actions.bot@gmail.com"
       - run: git config user.name "Patechoc GithHub Actions' Bot"
       - run: git commit -am "Publish to gh-pages branch"
+      - run: git status
+      - run: git branch
+      - run: git branch -a
 #      - run: git push pages gh-pages -f
       - run: git push origin gh-pages -f
