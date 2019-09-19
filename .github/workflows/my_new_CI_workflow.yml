@@ -1,17 +1,9 @@
-name: CI workflow: Build and Deploy
+name: Deploy to GitHub Pages
 on:
   push:
-    branches:	
+    branches:
       - master
 jobs:
-  test:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: [8, 10, 12]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
@@ -19,13 +11,9 @@ jobs:
       uses: actions/checkout@master
 
     - name: Build and Deploy
-      uses: actions/checkout@master
+      uses: JamesIves/github-pages-deploy-action@master
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_REPO_ACCESS_TOKEN }}
-        BASE_BRANCH: master # The branch the action should deploy from.
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: dist # The folder the action should deploy.
-        BUILD_SCRIPT: npm install vue && npm run build # The build script the action should run prior to deploying.
-        COMMIT_NAME: "GitHub Actions Bot"
-        COMMIT_EMAIL: "patrick.merlot+github_actions_bot@gmail.com"
-        
+        BRANCH: gh-pages
+        FOLDER: dist
+        BUILD_SCRIPT: cd real-world-vue && npm install vue && npm run build
