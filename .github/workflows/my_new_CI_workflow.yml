@@ -1,8 +1,17 @@
 name: CI workflow: Build and Deploy
-on: [push]
-  branches:	
-    - master
+on:
+  push:
+    branches:	
+      - master
 jobs:
+  test:
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: [8, 10, 12]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
@@ -17,6 +26,4 @@ jobs:
         BRANCH: gh-pages # The branch the action should deploy to.
         FOLDER: dist # The folder the action should deploy.
         BUILD_SCRIPT: npm install vue && npm run build # The build script the action should run prior to deploying.
-        COMMIT_NAME: "GitHub Actions Bot"
-        COMMIT_EMAIL: "patrick.merlot+github_actions_bot@gmail.com"
         
