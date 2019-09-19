@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: Build and Deploy
-      uses: Patechoc/deploy_with_github_actions@master
+      uses: actions/checkout@master
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_REPO_ACCESS_TOKEN }}
         BASE_BRANCH: master # The branch the action should deploy from.
