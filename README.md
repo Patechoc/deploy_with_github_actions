@@ -60,11 +60,13 @@ How to CI and CD a Node.JS Application Using GitHub Actions: https://blog.bitsrc
 
 ## Advanced settings
 
-### Custom domain name
+- **Custom domain name**
+- [**Creating a commit with multiple co-authors**](https://help.github.com/en/articles/creating-a-commit-with-multiple-authors)
 
 
 
 
 ## Resources
 
+- https://help.github.com/en/articles/setting-up-continuous-integration-using-github-actions
 - https://dev.to/pierresaid/deploy-node-projects-to-github-pages-with-github-actions-4jco
