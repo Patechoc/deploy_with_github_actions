@@ -20,4 +20,4 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.GITHUB_REPO_ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: dist
-        BUILD_SCRIPT: npm install && npm run-script build
+        BUILD_SCRIPT: npm install && npm install vue && npm run build
