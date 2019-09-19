@@ -11,10 +11,10 @@ jobs:
       uses: actions/checkout@master
 
     - name: Build and Deploy
-      uses: actions/checkout@master
+      uses: Patechoc/deploy_with_github_actions@master
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_REPO_ACCESS_TOKEN }}
         BASE_BRANCH: master # The branch the action should deploy from.
         BRANCH: gh-pages
         FOLDER: dist
-        BUILD_SCRIPT: cd real-world-vue && npm install vue && npm run build
+        BUILD_SCRIPT: npm install vue && npm run build
