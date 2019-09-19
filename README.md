@@ -73,4 +73,4 @@ How to CI and CD a Node.JS Application Using GitHub Actions: https://blog.bitsrc
 
 - https://help.github.com/en/articles/setting-up-continuous-integration-using-github-actions
 - https://github.com/sdras/awesome-actions
-- https://dev.to/pierresaid/deploy-node-projects-to-github-pages-with-github-actions-4jco
+- Finaly working solution: https://dev.to/pierresaid/deploy-node-projects-to-github-pages-with-github-actions-4jco
