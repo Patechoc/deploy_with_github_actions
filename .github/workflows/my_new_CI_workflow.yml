@@ -39,6 +39,7 @@ jobs:
       - run: git status
       - run: git branch
       - run: git branch -a
+      - run: git checkout -b my_new_branch
       - run: git branch --set-upstream-to origin/gh-pages
       - run: git push -u origin gh-pages
 #      - run: git push pages origin/gh-pages -f
