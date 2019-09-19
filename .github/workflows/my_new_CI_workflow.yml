@@ -27,3 +27,8 @@ jobs:
       - run: npm install
       - run: npm install vue
       - run: npm run build # doesn't seem to commit code to gh-pages!!
+      - run: git add --all
+      - run: git add -f dist/
+      - run: git commit -m "Publish to gh-pages branch"
+      - run: git remote add pages https://x-access-token:$GITHUB_REPO_ACCESS_TOKEN@github.com/:owner/:repo.git
+      - run: git push pages gh-pages -f
